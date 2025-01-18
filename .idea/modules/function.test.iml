@@ -2,8 +2,9 @@
 <module external.linked.project.id="function:test" external.linked.project.path="$MODULE_DIR$/../../function" external.root.project.path="$MODULE_DIR$/../../function" external.system.id="GRADLE" external.system.module.group="org.study" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet external-system-id="GRADLE" type="kotlin-language" name="Kotlin">
-      <configuration version="5" platform="JVM 21" allPlatforms="JVM [21]" useProjectSettings="false">
+      <configuration version="5" platform="JVM 21" allPlatforms="JVM [21]" useProjectSettings="false" pureKotlinSourceFolders="D:\frontend-1223-kbg\kotlin-basic\kotlin-basic\function\src\test\kotlin;D:\frontend-1223-kbg\kotlin-basic\kotlin-basic\function\src\main\kotlin">
         <additionalVisibleModuleNames>function:main</additionalVisibleModuleNames>
+        <compilerSettings />
         <compilerArguments>
           <flagArguments>
             <flagArg name="allowNoSourceFiles" arg="true" />
@@ -34,7 +35,7 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_21">
-    <output-test url="file://$MODULE_DIR$/../../function/build/classes/kotlin/test" />
+    <output-test url="file://$MODULE_DIR$/../../function/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../function/src/test">
       <sourceFolder url="file://$MODULE_DIR$/../../function/src/test/kotlin" isTestSource="true" />

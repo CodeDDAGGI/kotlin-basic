@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="basic" target="11" />
-      <module name="basic.main" target="11" />
-      <module name="basic.test" target="11" />
+      <module name="basic" target="21" />
+      <module name="basic.main" target="21" />
+      <module name="basic.test" target="21" />
       <module name="function" target="21" />
       <module name="function.main" target="21" />
       <module name="function.test" target="21" />

@@ -16,3 +16,7 @@ package dev.study.코틀린.exam
  * - nullable 타입 변수 name 과 age를 선언해주세요
  * - name 과 age의 값을 출력하되, 값이 없을경우 "Unknown"과 0을 출력하세요
  */
+
+fun main(){
+    
+}

@@ -20,13 +20,13 @@ fun add (a :Int , b: Int):Int {
 // }
 
 // 몸통이 있는 함수로 작성시 반환타입으르 정해주지 않으면 반환타입이 없음
-fun add5(a :Int , b: Int) {
-    println("$a + $b")
-}
-
-fun greeting(message : String = "안녕하세요"){
-    println(message)
-}
+//fun add5(a :Int , b: Int) {
+//    println("$a + $b")
+//}
+//
+//fun greeting(message : String = "안녕하세요"){
+//    println(message)
+//}
 
 fun log(level : String = "INFO" , message: String){
     println("{$level} : $message")
@@ -41,15 +41,16 @@ fun calculater(a:Int , b:Int , operation : (Int, Int) -> Int):Int{
 
 fun main(){
 //    greeting()
-//    log(message = "인포 로그")
-//    log(level = "DEBUG", message = "인포 로그")
-//    log("DEBUG", "인포 로그")
-//    log(level = "ERROR", "인포 로그")
+    log(message = "인포 로그")
+    log(level = "DEBUG", message = "인포 로그")
+    log("DEBUG", "인포 로그")
+    log(level = "ERROR", "인포 로그")
 
+    calculater(5, 6,){x , y -> x + y}
     // it 기본 매개변수
-    val square : (Int) -> Int = { it + it }
-    println(square(5))
+//    val square : (Int) -> Int = { it + it }
+//    println(square(5))
     // 중괄호가 열리면 람다가 생성된거임
     // 자바의 익명함수랑 비슷한 개념임
-    println(calculater(4, 6) {x , y -> x + y})
+//    println(calculater(4, 6) {x , y -> x + y})
 }

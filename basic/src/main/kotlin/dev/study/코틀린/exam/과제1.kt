@@ -18,5 +18,27 @@ package dev.study.코틀린.exam
  */
 
 fun main(){
-    
+//    var name : String = "홍길동"
+//    var age : Int = 25
+//    var job : String = "디자이너"
+
+    val name = "홍길동"
+    val age = 25
+    var job = "디자이너"
+//    println("이름 : $name , 나이 : $age , 직업 : $job");
+
+    job = "개발자"
+
+//    println("변경된 직업 : $job")
+
+    var name2 : String? = null ?: "Unkown"
+    var age2 : Int? = null ?: 0
+
+//    println("이름 : $name2 , 나이 : $age2")
+
+    var yourname : (String , Int , String) -> String = {name , age , job ->
+        "$name , $age , $job"
+    }
+
+//    println(yourname(name, age , job))
 }

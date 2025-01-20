@@ -17,20 +17,40 @@ package dev.study
  */
 
 fun main() {
-    println(formatPersonDisplayAnswer("John", "Smith", 42){x , y , z -> "$x , $y , $z"})
+    println(formatPersonDisplayAnswer("John", "Smith", 42))
     // John, Smith, 42
-    println(formatPersonDisplayAnswer2("Alex", "Simonson"))
+    println(formatPersonDisplayAnswer("Alex", "Simonson"))
     // Alex, Simonson
-//    println(formatPersonDisplayAnswer("Peter", age = 25))
-//    //Peter, 25
-//    println(formatPersonDisplayAnswer(surname = "Johnson", age = 18))
-//    //Johnson, 18
+    println(formatPersonDisplayAnswer("Peter", age = 25))
+    //Peter, 25
+    println(formatPersonDisplayAnswer(surname = "Johnson", age = 18))
+    //Johnson, 18
+
+    var list = listOf(1,2,3,5,6)
+    println( list.filter{it % 2 == 0})
+    println( func(5, 20){x , y -> x * y})
+    var name =1
+    println(name.toString())
+    var surname = "d"
+    var age = 5
+    println(listOf(name , surname , age))
 }
 
-fun formatPersonDisplayAnswer(name : String? , surname : String? , age : Int?, Info:(String , String , Int) -> Any):Any{
-    return Info(name?:"" , surname?: "" , age?:0)
+fun formatPersonDisplayAnswer (name: String? = null , surname: String? = null , age: Int? = null ):String{
+    var result = ""
+    if(name != null)result += name
+    if (surname != null) {
+        if(result.isNotEmpty()) result += " , "
+            result += surname
+    }
+    if(age != null) {
+        if(result.isNotEmpty()) result += " , "
+        result += age
+    }
+    return result
 }
 
-fun formatPersonDisplayAnswer2 (name : String? , surname: String? , age: Int? ):String{
-    return "$name , $surname , $age"
+fun func (a:Int , b:Int,c:(Int,Int)->Int): Int{
+    return c(a , b)
 }
+

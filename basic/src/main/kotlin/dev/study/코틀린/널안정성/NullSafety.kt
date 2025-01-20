@@ -41,11 +41,14 @@ fun main() {
     // 변수에 할당이 가능해서 삼항연산자가 필요없음
     val number = if(nonNullable.startsWith("K")) 1 else 2
 
-//    println(number)
+    println(number)
 
-    user?.cheer()
-    println(user?.name)
-    user = User("Leona")
-    user?.cheer();
-    println(user?.name)
+    println(nullable)
+    println(nonNullable)
+
+//    user?.cheer()
+//    println(user?.name)
+//    user = User("Leona")
+//    user?.cheer();
+//    println(user?.name)
 }

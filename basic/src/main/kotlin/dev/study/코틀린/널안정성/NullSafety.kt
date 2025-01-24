@@ -46,9 +46,9 @@ fun main() {
     println(nullable)
     println(nonNullable)
 
-//    user?.cheer()
-//    println(user?.name)
-//    user = User("Leona")
-//    user?.cheer();
-//    println(user?.name)
+    user?.cheer()
+    println(user?.name)
+    user = User("Leona")
+    user?.cheer();
+    println(user?.name)
 }

@@ -1,7 +1,5 @@
 package dev.study.테스트
 
-import org.study.dev.study.코틀린.test
-
 fun main(){
 //    var add: Int = 10;
 //    var df = if (add > 20) "ok" else "No"
@@ -16,7 +14,7 @@ fun main(){
 
 }
 
-class testing (
+data class testing (
     val a : String,
     val b : Int
 ){
@@ -24,9 +22,7 @@ class testing (
         return "$a + $b"
     }
 
-    override fun toString() : String {
-        return "testing(a ='$a' , b=$b)"
-    }
+
 }
 
 

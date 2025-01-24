@@ -38,3 +38,14 @@ fun main() {
     println(cal.multi(10 , 20))
     println(cal.div(5, 20))
 }
+
+class Calculator2{
+    fun add(a:Int , b:Int) = a + b
+    fun sub(a:Int , b:Int) = a - b
+    fun multiply(a:Int , b:Int) = a * b
+    fun div(a:Int , b:Int):Double = a /b.toDouble()
+}
+
+
+
+//fun calculate(a:Int , b:Int)

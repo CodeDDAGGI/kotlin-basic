@@ -2,6 +2,7 @@ package com.study.코루틴
 
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executors
+import java.util.concurrent.Future
 import kotlin.system.measureTimeMillis
 
 //fun downloadImage(url:String):String {
@@ -35,34 +36,36 @@ import kotlin.system.measureTimeMillis
 //    println("동기 다운로드 시간 : ${syscTime}ms")
 //}
 
-// 비동기 버젼
+// CompletableFuture
+//private val executor = Executors.newFixedThreadPool(3)
+//fun downloadImage(url : String):CompletableFuture<String> =
+//    CompletableFuture.supplyAsync({
+//        Thread.sleep(1000)
+//        "이미지 데이터 : $url"
+//    }, executor)
+//
+//
+//fun saveImage(image : String): CompletableFuture<String> =
+//    CompletableFuture.supplyAsync({
+//        Thread.sleep(1000)
+//        "저장 완료 : $image"
+//    }, executor)
+//
+//fun main() {
+//    val images = listOf("url1" , "url2" , "url3" )
+//    val startTime = System.currentTimeMillis()
+//
+//    val futures = images.map { imageUrl ->
+//        downloadImage(imageUrl)
+//            .thenCompose { saveImage(it) }
+//            .thenApply { result ->  "$result..."}
+//    }
+//    futures.forEach{ println(it.get()) }
+//    executor.shutdown()
+//    println("총 소요시간 : ${System.currentTimeMillis() - startTime}ms \n")
+//}
+
 private val executor = Executors.newFixedThreadPool(3)
 
-fun downloadImage(url : String):CompletableFuture<String> =
-    CompletableFuture.supplyAsync({
-        Thread.sleep(1000)
-        "이미지 데이터 : $url"
-    }, executor)
-
-
-fun saveImage(url : String): CompletableFuture<String> =
-    CompletableFuture.supplyAsync({
-        Thread.sleep(1000)
-        "저장 완료 : $url"
-    }, executor)
-
-fun main() {
-    val images = listOf("url1" , "url2" , "url3" )
-    val startTime = System.currentTimeMillis()
-
-    val futures = images.map { imageUrl ->
-        downloadImage(imageUrl)
-            .thenCompose { saveImage(it) }
-            .thenApply { result ->  "$result..."}
-    }
-    futures.forEach{ println(it.get()) }
-    executor.shutdown()
-    println("총 소요시간 : ${System.currentTimeMillis() - startTime}ms \n")
-}
-
+// 동기
 

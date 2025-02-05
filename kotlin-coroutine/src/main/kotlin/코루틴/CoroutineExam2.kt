@@ -1,9 +1,9 @@
 package com.study.코루틴
 
-import java.util.concurrent.CompletableFuture
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Executors
-import java.util.concurrent.Future
-import kotlin.system.measureTimeMillis
 
 //fun downloadImage(url:String):String {
 //    Thread.sleep(3000)
@@ -66,6 +66,64 @@ import kotlin.system.measureTimeMillis
 //}
 
 private val executor = Executors.newFixedThreadPool(3)
+//// Future
+//fun downloadImage(url: String):Future<String>{
+//    return executor.submit <String>{
+//        Thread.sleep(1000)
+//        "저장 완료 : $url"
+//    }
+//}
+//
+//fun saveImg(image : String):Future<String> {
+//    return executor.submit <String>{
+//        Thread.sleep(1000)
+//        "이미지 데이터 : $image"
+//    }
+//}
+//
+//fun fetchDatad (img:String):Future<String>{
+//    val down = downloadImage(img).get()
+//
+//    return saveImg(down)
+//}
+//
+//fun main() {
+//    val images = listOf("url1", "url2", "url3")
+//    val start = System.currentTimeMillis()
+//
+//    val future = images.map { img ->
+//        fetchData(img)
+//    }
+//
+//    future.forEach { println(it.get()) }
+//
+//    executor.shutdown()
+//    println("총 소요시간: ${System.currentTimeMillis() - start}ms")
+//}
 
-// 동기
+// 코루틴
+suspend fun downloadImage(url: String):String {
+    delay(1000)
+    return "저장완료 : $url"
+}
 
+suspend fun saveImg(img : String):String {
+    delay(1000)
+    return "이미지 데이터: $img"
+}
+
+fun main() = runBlocking{
+    val imgList = listOf("url1" , "url2" , "url3")
+    val start = System.currentTimeMillis()
+    val reload = imgList.map {
+        img -> launch {
+            val image = downloadImage(img)
+            val down = saveImg(image)
+            println(down)
+        }
+    }
+
+    reload.forEach{it.join()}
+
+    println("걸리는 시간 : ${System.currentTimeMillis() - start}ms")
+}

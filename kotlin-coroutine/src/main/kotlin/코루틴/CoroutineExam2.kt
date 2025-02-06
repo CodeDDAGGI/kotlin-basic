@@ -1,5 +1,6 @@
 package com.study.코루틴
 
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -102,14 +103,48 @@ private val executor = Executors.newFixedThreadPool(3)
 //}
 
 // 코루틴
-suspend fun downloadImage(url: String):String {
-    delay(1000)
-    return "저장완료 : $url"
+//suspend fun downloadImage(url: String):String {
+//    delay(1000)
+//    return "저장완료 : $url"
+//}
+//
+//suspend fun saveImg(img : String):String {
+//    delay(1000)
+//    return "이미지 데이터: $img"
+//}
+//
+//fun main() = runBlocking{
+//    val imgList = listOf("url1" , "url2" , "url3")
+//    val start = System.currentTimeMillis()
+//    val reload = imgList.map {
+//        img -> launch {
+//            val image = downloadImage(img)
+//            val down = saveImg(image)
+//            println(down)
+//        }
+//    }
+//
+//    reload.forEach{it.join()}
+//
+//    println("걸리는 시간 : ${System.currentTimeMillis() - start}ms")
+//}
+
+// 개발자님 답
+
+fun saveImg(img : String) {
+    Thread.sleep(1000)
+    println("이미지 데이터: ${img.take(15)}...")
 }
 
-suspend fun saveImg(img : String):String {
-    delay(1000)
-    return "이미지 데이터: $img"
+fun downloadImage(urls: List<String>){
+    val executor = Executors.newFixedThreadPool(urls.size)
+
+    urls.forEach{
+        url -> executor.submit {
+            val image = downloadImage(url)
+        saveImg(image)
+    }
+    }
 }
 
 fun main() = runBlocking{
@@ -126,4 +161,10 @@ fun main() = runBlocking{
     reload.forEach{it.join()}
 
     println("걸리는 시간 : ${System.currentTimeMillis() - start}ms")
+}
+
+suspend fun downloadCoroutine(urls: List<String>) = coroutineScope{
+    urls.map {
+        url ->
+    }
 }
